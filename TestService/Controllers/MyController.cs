@@ -16,5 +16,12 @@ namespace TestService.Controllers
         {
             return Enumerable.Range(0, 100);
         }
+
+        [HttpPost]
+        [Route("test2")]
+        public IEnumerable<int> Test2()
+        {
+            return Enumerable.Range(0, 100);
+        }
     }
 }
