@@ -1,0 +1,13 @@
+﻿[Unit]
+Description=TestService
+After=network.target auditd.service
+
+[Service]
+ExecStart=dotnet /opt/service/TestService.dll
+KillMode=process
+Restart=on-failure
+RestartPreventExitStatus=255
+
+[Install]
+WantedBy=multi-user.target
+Alias=testservice.service
