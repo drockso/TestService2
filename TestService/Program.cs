@@ -4,6 +4,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.Extensions.Hosting;
 
 namespace TestService
 {
@@ -18,6 +19,7 @@ namespace TestService
         {
             return WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                
                 .UseKestrel(options =>
                 {
                     options.Limits.MaxConcurrentConnections = 100;
