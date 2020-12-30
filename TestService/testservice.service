@@ -3,6 +3,7 @@ Description=TestService
 After=network.target
 
 [Service]
+EnvironmentFile=/etc/environment
 User=dotnet
 Type=simple
 WorkingDirectory=/opt/service
