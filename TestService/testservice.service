@@ -1,9 +1,11 @@
 ﻿[Unit]
 Description=TestService
-After=network.target auditd.service
+After=network.target
 
 [Service]
-ExecStart=dotnet /opt/service/TestService.dll
+Type=simple
+WorkingDirectory=/opt/service
+ExecStart=/opt/service/TestService
 KillMode=process
 Restart=on-failure
 RestartPreventExitStatus=255
