@@ -24,14 +24,14 @@ namespace TestService.Controllers
             return Enumerable.Range(0, 100);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("test3")]
         public IEnumerable<int> Test3()
         {
             return Enumerable.Range(0, 100);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("test4")]
         public IEnumerable<int> Test4()
         {
