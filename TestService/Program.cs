@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Server.Kestrel;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using NLog.Web;
 
 namespace TestService
 {
@@ -19,7 +21,6 @@ namespace TestService
         {
             return WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                
                 .UseKestrel(options =>
                 {
                     options.Limits.MaxConcurrentConnections = 100;
@@ -30,6 +31,12 @@ namespace TestService
                     new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
                     options.Listen(IPAddress.Any, 5000);
                 })
+                .ConfigureLogging(logging =>
+                {
+                    logging.ClearProviders();
+                    logging.SetMinimumLevel(LogLevel.Information);
+                })
+                .UseNLog()
                 .Build();
         }
     }

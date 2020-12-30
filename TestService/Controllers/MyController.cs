@@ -35,6 +35,7 @@ namespace TestService.Controllers
         [Route("test4")]
         public IEnumerable<int> Test4()
         {
+            throw new Exception("error!");
             return Enumerable.Range(0, 100);
         }
     }
