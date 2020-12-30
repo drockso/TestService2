@@ -3,6 +3,7 @@ Description=TestService
 After=network.target
 
 [Service]
+User=dotnet
 Type=simple
 WorkingDirectory=/opt/service
 ExecStart=/opt/service/TestService
