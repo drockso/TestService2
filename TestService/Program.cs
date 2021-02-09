@@ -29,7 +29,7 @@ namespace TestService
                     new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
                     options.Limits.MinResponseDataRate =
                     new MinDataRate(bytesPerSecond: 100, gracePeriod: TimeSpan.FromSeconds(10));
-                    options.Listen(IPAddress.Any, 5000);
+                    //options.Listen(IPAddress.Any, 5000);
                 })
                 .ConfigureLogging(logging =>
                 {
